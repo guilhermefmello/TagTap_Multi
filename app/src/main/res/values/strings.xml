@@ -6,4 +6,12 @@
     <item name="enter_password_edit_text" type="id">enter_password_edit_text</item>
     <item name="signup_button" type="id">signup_button</item>
     <item name="signin_here_text_view" type="id">signin_here_text_view</item>
+    <item name="logout_button" type="id">logout_button</item>
+    <item name="login_confirmation_text_view" type="id">login_confirmation_text_view</item>
+    <item name="user_login_text_view" type="id">user_login_text_view</item>
+    <item name="enter_email_login_edit_text" type="id">enter_email_login_edit_text</item>
+    <item name="enter_password_login_edit_text" type="id">enter_password_login_edit_text</item>
+    <item name="signin_here_login_text_view" type="id">signin_here_login_text_view</item>
+    <item name="signup_here_login_text_view" type="id">signup_here_login_text_view</item>
+    <item name="signin_login_button" type="id">signin_login_button</item>
 </resources>

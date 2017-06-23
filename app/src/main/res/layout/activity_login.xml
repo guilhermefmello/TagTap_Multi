@@ -8,7 +8,7 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,17 +17,17 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/user_registration_text_view"
+            android:id="@+id/user_login_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="15dp"
-            android:text="User Registration"
+            android:text="User Login"
             android:textAlignment="center"
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/enter_email_edit_text"
+            android:id="@+id/enter_email_login_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
@@ -36,7 +36,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/enter_password_edit_text"
+            android:id="@+id/enter_password_login_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
@@ -46,18 +46,18 @@
             android:password="true" />
 
         <Button
-            android:id="@+id/signup_button"
+            android:id="@+id/signin_login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="Sign up" />
+            android:text="Sign in" />
 
         <TextView
-            android:id="@+id/signin_here_text_view"
+            android:id="@+id/signup_here_login_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="Already Registered? Sign in Here!"
+            android:text="Don't have an account? Sign up Here!"
             android:textAlignment="center" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
