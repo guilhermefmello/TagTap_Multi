@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TagTapMulti</string>
+    <string name="app_name">TagTap Multi</string>
 
     <item name="user_registration_text_view" type="id">user_registration_text_view</item>
     <item name="enter_email_edit_text" type="id">enter_email_edit_text</item>
