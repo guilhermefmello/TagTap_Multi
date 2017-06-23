@@ -57,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="Don't have an account? Sign up Here!"
+            android:text="Create a new account now! Sign up Here!"
             android:textAlignment="center" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

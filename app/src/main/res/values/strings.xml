@@ -14,4 +14,8 @@
     <item name="signin_here_login_text_view" type="id">signin_here_login_text_view</item>
     <item name="signup_here_login_text_view" type="id">signup_here_login_text_view</item>
     <item name="signin_login_button" type="id">signin_login_button</item>
+    <item name="tagtap_description" type="id">tagtap_description</item>
+    <item name="tagtap_notes_description" type="id">tagtap_notes_description</item>
+    <item name="tagtap_image_link" type="id">tagtap_image_link</item>
+    <item name="tagtapntes_image_link" type="id">tagtapnotes_image_link</item>
 </resources>
