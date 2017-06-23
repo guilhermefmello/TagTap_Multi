@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TagTapMulti</string>
+
+    <item name="user_registration_text_view" type="id">user_registration_text_view</item>
+    <item name="enter_email_edit_text" type="id">enter_email_edit_text</item>
+    <item name="enter_password_edit_text" type="id">enter_password_edit_text</item>
+    <item name="signup_button" type="id">signup_button</item>
+    <item name="signin_here_text_view" type="id">signin_here_text_view</item>
+</resources>

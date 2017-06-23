@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "563073252420",
+    "firebase_url": "https://tagtapmulti.firebaseio.com",
+    "project_id": "tagtapmulti",
+    "storage_bucket": "tagtapmulti.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563073252420:android:b1c11066f3fc1f8b",
+        "android_client_info": {
+          "package_name": "guilherme.tagtapmulti"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "563073252420-m6d98fj5s3farbt4uv2kf2d77h3b2f9q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFYFtlCecw8YyOFGXvBUK2mzZbSlM4pJU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
