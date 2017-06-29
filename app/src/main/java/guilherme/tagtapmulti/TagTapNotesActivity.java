@@ -164,19 +164,14 @@ public class TagTapNotesActivity extends AppCompatActivity {
         WriteModeOn();
     }
 
+    private void WriteModeOn(){
+        writeMode = true;
+        adapter.enableForegroundDispatch(this, pendingIntent, writeTagFilters, null);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    private void WriteModeOff(){
+        writeMode = false;
+        adapter.disableForegroundDispatch(this);
+    }
 
 }
