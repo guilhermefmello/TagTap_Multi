@@ -152,6 +152,18 @@ public class TagTapNotesActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onPause(){
+        super.onPause();
+        WriteModeOff();
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        WriteModeOn();
+    }
+
 
 
 
