@@ -254,10 +254,47 @@ public class TagTapActivity extends AppCompatActivity {
             return new WriteResponse(0,mess);
         }
 
+    }
+
+
+    private class WriteResponse {
+        int status;
+        String message;
+        WriteResponse(int Status, String Message) {
+            this.status = Status;
+            this.message = Message;
+        }
 
 
 
+        public int getStatus() {
+            return status;
+        }
+        public String getMessage() {
+            return message;
+        }
+    }
 
+    
+
+    public static boolean supportedTechs(String[] techs) {
+        boolean ultralight=false;
+        boolean nfcA=false;
+        boolean ndef=false;
+        for(String tech:techs) {
+            if(tech.equals("android.nfc.tech.MifareUltralight")) {
+                ultralight=true;
+            }else if(tech.equals("android.nfc.tech.NfcA")) {
+                nfcA=true;
+            } else if(tech.equals("android.nfc.tech.Ndef") || tech.equals("android.nfc.tech.NdefFormatable")) {
+                ndef=true;
+            }
+        }
+        if(ultralight && nfcA && ndef) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
