@@ -7,8 +7,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
+import android.nfc.tech.Ndef;
+import android.nfc.tech.NdefFormatable;
 import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +24,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.io.IOException;
 
 public class TagTapActivity extends AppCompatActivity {
 
@@ -196,6 +201,66 @@ public class TagTapActivity extends AppCompatActivity {
             }
         }
     }
+
+
+    /*
+    * Passing in the NDEF message and find its size and trying to grab the formatted tag. ("writeTag")
+    * NDEF (NFC Data Exchange Format) is a light-weight binary format, used to encapsulate typed data.
+    * Here starts the "try and if methods":
+        * If the tag is NDEF encoded and formatted, this will come back true and we can connect to it.
+        * If the TAG is writable, we can check how much space it has to see if what we are going to write will fit.
+        * If the tag has room, we can write our message on it.  
+        * If we try to write too much, it will fail as an exception in the try/catch statement.
+    */
+    public WriteResponse writeTag(NdefMessage message, Tag tag) {
+        int size = message.toByteArray().length;
+        String mess = "";
+
+        try {
+            Ndef ndef = Ndef.get(tag);
+            if (ndef != null) {
+                ndef.connect();
+                if (!ndef.isWritable()) {
+                    return new WriteResponse(0,"Tag is read-only");
+                }
+                if (ndef.getMaxSize() < size) {
+                    mess = "Tag capacity is " + ndef.getMaxSize() + " bytes, message is " + size
+                            + " bytes.";
+                    return new WriteResponse(0,mess);
+                }
+                ndef.writeNdefMessage(message);
+                if(writeProtect) ndef.makeReadOnly();
+                mess = "URL Saved Successfully!";
+                return new WriteResponse(1,mess);
+            } else {
+                NdefFormatable format = NdefFormatable.get(tag);
+                if (format != null) {
+                    try {
+                        format.connect();
+                        format.format(message);
+                        mess = "Formatted tag and wrote message";
+                        return new WriteResponse(1,mess);
+                    } catch (IOException e) {
+                        mess = "Failed to format tag.";
+                        return new WriteResponse(0,mess);
+                    }
+                } else {
+                    mess = "Tag doesn't support NDEF.";
+                    return new WriteResponse(0,mess);
+                }
+            }
+        } catch (Exception e) {
+            mess = "Failed to write tag";
+            return new WriteResponse(0,mess);
+        }
+
+
+
+
+
+    }
+
+
 
 
 
