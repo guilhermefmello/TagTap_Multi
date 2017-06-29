@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.nfc.NdefMessage;
+import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.Ndef;
@@ -26,6 +27,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 public class TagTapActivity extends AppCompatActivity {
 
@@ -319,22 +321,33 @@ public class TagTapActivity extends AppCompatActivity {
     }
 
 
+    /*
+    * Creating a NDEF record
+    * Specifying what we are going to write to the tag ('smartwhere.com/nfc.html') and get its bytes and create its payload.
+    *
+    */
+    private NdefMessage getTagAsNdef() {
 
 
+        //Android Library compiling into an Android Archive (AAR);
+        boolean addAAR = false;
+        String uniqueId = editText.getText().toString();
+        byte[] uriField = uniqueId.getBytes(Charset.forName("US-ASCII"));
+        byte[] payload = new byte[uriField.length + 1];       //add 1 for the URI Prefix
+        payload[0] = 0x01;                        //prefixes http://www. to the URI
+        System.arraycopy(uriField, 0, payload, 1, uriField.length); //appends URI to payload
+        NdefRecord rtdUriRecord = new NdefRecord(
+                NdefRecord.TNF_WELL_KNOWN, NdefRecord.RTD_URI, new byte[0], payload);
+        if(addAAR) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            // note: returns AAR for different app (nfcreadtag)
+            return new NdefMessage(new NdefRecord[] {
+                    rtdUriRecord, NdefRecord.createApplicationRecord("com.tapwise.nfcreadtag")
+            });
+        } else {
+            return new NdefMessage(new NdefRecord[] {
+                    rtdUriRecord});
+        }
+    }
 
 }
