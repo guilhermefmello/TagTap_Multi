@@ -275,7 +275,7 @@ public class TagTapActivity extends AppCompatActivity {
         }
     }
 
-    
+
 
     public static boolean supportedTechs(String[] techs) {
         boolean ultralight=false;
@@ -295,6 +295,27 @@ public class TagTapActivity extends AppCompatActivity {
         } else {
             return false;
         }
+    }
+
+    private boolean writableTag(Tag tag) {
+        try {
+            Ndef ndef = Ndef.get(tag);
+            if (ndef != null) {
+                ndef.connect();
+                if (!ndef.isWritable()) {
+                    Toast.makeText(context,"Tag is read-only.",Toast.LENGTH_SHORT).show();
+                    //Sounds.PlayFailed(context, silent);
+                    ndef.close();
+                    return false;
+                }
+                ndef.close();
+                return true;
+            }
+        } catch (Exception e) {
+            Toast.makeText(context,"Failed to read tag",Toast.LENGTH_SHORT).show();
+            //Sounds.PlayFailed(context, silent);
+        }
+        return false;
     }
 
 
