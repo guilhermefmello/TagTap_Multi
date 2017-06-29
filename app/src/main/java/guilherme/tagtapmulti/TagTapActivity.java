@@ -4,11 +4,14 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.MediaPlayer;
 import android.nfc.NfcAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class TagTapActivity extends AppCompatActivity {
 
@@ -56,7 +59,25 @@ public class TagTapActivity extends AppCompatActivity {
         mWriteTagFilters = new IntentFilter[] { discovery };
 
 
-        
+        //Adding button to retrieve the URL in the EditText field
+        editText = (EditText) findViewById(R.id.editTextUrl);
+        btnWrite = (Button)findViewById(R.id.buttonWriteTag);
+        final MediaPlayer myMediabtSinglePlayer = MediaPlayer.create(this, R.raw.button_sound1);
+
+        btnWrite.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+
+            public void onClick(View v) {
+
+                myMediabtSinglePlayer.start();
+                getTagAsNdef();
+
+                Toast.makeText(context, "Tap a Tag to Record your URL.", Toast.LENGTH_LONG).show();
+
+            }
+
+        });
 
 
 
