@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.nfc.NfcAdapter;
+import android.nfc.Tag;
 import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -152,6 +153,50 @@ public class TagTapActivity extends AppCompatActivity {
             Toast.makeText(context, "Sorry, No NFC Adapter found.", Toast.LENGTH_SHORT).show();
         }
     }
+
+
+    /*
+    * Check to see if the action in the intent matches 'ACTION_TAG_DISCOVERED'
+    * If it is, this is how we get the tag from the reader.
+    */
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(mNfcAdapter != null) mNfcAdapter.disableForegroundDispatch(this);
+    }
+
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if(NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
+
+            /*
+             * validate that this tag can be written ('getParceableExtra()' to get TAG's data)
+             * grabbing the list of technologies associated with that tag using 'getTechList()'
+             * to see if it has the technologies we are trying to support.
+            */
+            Tag detectedTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+            if(supportedTechs(detectedTag.getTechList())) {
+
+                // checking if tag is writable
+                if(writableTag(detectedTag)) {
+
+                    //writing a TAG here
+                    WriteResponse wr = writeTag(getTagAsNdef(), detectedTag);
+                    String message = (wr.getStatus() == 1? "Success: " : "Failed: ") + wr.getMessage();
+                    Toast.makeText(context,message,Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(context,"This tag is not writable",Toast.LENGTH_SHORT).show();
+                    //Sounds.PlayFailed(context, silent);
+                }
+            } else {
+                Toast.makeText(context,"This tag type is not supported",Toast.LENGTH_SHORT).show();
+                //Sounds.PlayFailed(context, silent);
+            }
+        }
+    }
+
 
 
 
