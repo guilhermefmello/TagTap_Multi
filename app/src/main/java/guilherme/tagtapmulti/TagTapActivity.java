@@ -2,16 +2,21 @@ package guilherme.tagtapmulti;
 
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.nfc.NfcAdapter;
+import android.provider.Settings;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -115,6 +120,37 @@ public class TagTapActivity extends AppCompatActivity {
         Uri uriUrl = Uri.parse(url);
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
+    }
+
+
+    /*
+    Checking the NFC adapter, and if it's not enabled, will put a dialog box to take us to our settings to enable it.  
+    Otherwise it fails. 
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(mNfcAdapter != null) {
+            if (!mNfcAdapter.isEnabled()){
+                LayoutInflater inflater = getLayoutInflater();
+                View dialoglayout = inflater.inflate(R.layout.nfc_settings_layout,(ViewGroup) findViewById(R.id.nfc_settings_layout));
+                new AlertDialog.Builder(this).setView(dialoglayout)
+                        .setPositiveButton("Update Settings", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                Intent setnfc = new Intent(Settings.ACTION_WIRELESS_SETTINGS);
+                                startActivity(setnfc);
+                            }
+                        })
+                        .setOnCancelListener(new DialogInterface.OnCancelListener() {
+                            public void onCancel(DialogInterface dialog) {
+                                finish(); // exit application if user cancels
+                            }
+                        }).create().show();
+            }
+            mNfcAdapter.enableForegroundDispatch(this, mNfcPendingIntent, mWriteTagFilters, null);
+        } else {
+            Toast.makeText(context, "Sorry, No NFC Adapter found.", Toast.LENGTH_SHORT).show();
+        }
     }
 
 
