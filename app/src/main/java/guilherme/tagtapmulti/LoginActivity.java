@@ -38,6 +38,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //Displaying Logo on Action Bar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.tagtap_multi_icon_44);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //getting firebase auth object
         firebaseAuth = FirebaseAuth.getInstance();

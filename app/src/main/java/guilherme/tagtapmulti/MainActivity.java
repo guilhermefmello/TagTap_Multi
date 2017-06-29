@@ -35,6 +35,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Displaying Logo on Action Bar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.tagtap_multi_icon_44);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
             //initializing firebase auth object
             firebaseAuth = FirebaseAuth.getInstance();
 

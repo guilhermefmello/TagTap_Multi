@@ -35,6 +35,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         tagTapImageClick();
         tagTapNotesImageClick();
 
+        //Displaying Logo on Action Bar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.tagtap_multi_icon_44);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+
 
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
