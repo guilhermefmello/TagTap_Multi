@@ -144,6 +144,14 @@ public class TagTapNotesActivity extends AppCompatActivity {
         return recordNFC;
     }
 
+    @Override
+    protected void onNewIntent(Intent intent){
+        if(NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())){
+            mytag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
+            Toast.makeText(this, this.getString(R.string.ok_detection) + mytag.toString(), Toast.LENGTH_LONG ).show();
+        }
+    }
+
 
 
 
