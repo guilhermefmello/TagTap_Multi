@@ -59,16 +59,16 @@ public class TagTapNotesActivity extends AppCompatActivity {
 
                 try {
                     if(mytag==null){
-                        Toast.makeText(ctx, ctx.getString(R.string.error_detected), Toast.LENGTH_LONG ).show();
+                        Toast.makeText(ctx, "TAG NOT DETECTED!", Toast.LENGTH_LONG ).show();
                     }else{
                         write(message.getText().toString(),mytag);
-                        Toast.makeText(ctx, ctx.getString(R.string.ok_writing), Toast.LENGTH_LONG ).show();
+                        Toast.makeText(ctx, "TAG HAS BEEN WRITTEN!", Toast.LENGTH_LONG ).show();
                     }
                 } catch (IOException e) {
-                    Toast.makeText(ctx, ctx.getString(R.string.error_writing), Toast.LENGTH_LONG ).show();
+                    Toast.makeText(ctx, "ERROR DURING WRITING! MAKE SURE THAT YOUR TAG IS CLOSE", Toast.LENGTH_LONG ).show();
                     e.printStackTrace();
                 } catch (FormatException e) {
-                    Toast.makeText(ctx, ctx.getString(R.string.error_writing) , Toast.LENGTH_LONG ).show();
+                    Toast.makeText(ctx, "ERROR DURING WRITING! MAKE SURE THAT YOUR TAG IS CLOSE", Toast.LENGTH_LONG ).show();
                     e.printStackTrace();
                 }
             }
@@ -148,7 +148,7 @@ public class TagTapNotesActivity extends AppCompatActivity {
     protected void onNewIntent(Intent intent){
         if(NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())){
             mytag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-            Toast.makeText(this, this.getString(R.string.ok_detection) + mytag.toString(), Toast.LENGTH_LONG ).show();
+            Toast.makeText(this, "TAG DETECTED!" + mytag.toString(), Toast.LENGTH_LONG ).show();
         }
     }
 
