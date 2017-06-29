@@ -99,9 +99,11 @@
             android:text="Save a Text Message into a NFC Tag. Tired about dozens of post notes arround your workstation or on your fridge? Click on TagTap Notes Logo and feel the new experience! " />
 
         <ImageView
-            android:id="@+id/tagtapntes_image_link"
+            android:id="@+id/tagtapnotes_image_link"
             android:layout_width="185dp"
             android:layout_height="203dp"
+            android:clickable="false"
+            android:onClick="notesImageClick"
             android:padding="10dp"
             app:srcCompat="@drawable/tagtap_notes_logo_512x512" />
     </LinearLayout>

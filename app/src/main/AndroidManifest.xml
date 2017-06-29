@@ -17,18 +17,35 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
 
         <service android:name=".FirebaseMessagingService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-            </intent-filter>
-    </service>
+               
+            <intent-filter>
+                       
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                   
+            </intent-filter>
+        </service>
 
-        <meta-data android:name="com.google.firebase.messaging.default_notification_color"
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
+
+        <activity android:name="guilherme.tagtapmulti.TagTapNotesActivity">
+            <intent-filter>
+                <action android:name="guilherme.tagtapmulti.TagTapNotesActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+
+
+
 
     </application>
 

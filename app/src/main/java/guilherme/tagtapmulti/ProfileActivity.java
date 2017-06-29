@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -19,12 +20,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     //view objects
     private TextView textViewUserEmail;
     private Button buttonLogout;
+    private ImageView tagTapNotesClickable;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        notesImageClick();
 
 
         //initializing firebase authentication object
@@ -68,4 +72,22 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(new Intent(this, LoginActivity.class));
         }
     }
+
+
+    public void notesImageClick(){
+        tagTapNotesClickable = (ImageView)findViewById(R.id.tagtapnotes_image_link);
+        tagTapNotesClickable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent tagTapNotesIntent = new Intent("guilherme.tagtapmulti.TagTapNotesActivity");
+                startActivity(tagTapNotesIntent);
+            }
+        });
+    }
+
+
+
+
+
+
 }
