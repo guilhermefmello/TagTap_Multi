@@ -101,7 +101,7 @@ public class TagTapActivity extends AppCompatActivity {
     //Inflating a Menu.xml
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.tagtap_menu, menu);
 
         return true;
 

@@ -94,7 +94,7 @@ public class TagTapNotesActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item:
-                goToUrl ( "https://github.com/guilhermefmello/TagTap_Multi");
+                goToUrl ( "https://github.com/guilhermefmello/TagTap_Notes");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
