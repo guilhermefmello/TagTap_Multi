@@ -8,6 +8,8 @@ import android.media.MediaPlayer;
 import android.nfc.NfcAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -79,7 +81,47 @@ public class TagTapActivity extends AppCompatActivity {
 
         });
 
+    }
 
+
+    //Inflating a Menu.xml
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+
+        return true;
 
     }
+
+
+    //Adding a Action to the Option in the Menu Bar.
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_item:
+
+                goToUrl ( "https://github.com/guilhermefmello/TagTap");
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
