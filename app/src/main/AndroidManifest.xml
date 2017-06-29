@@ -17,7 +17,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".ProfileActivity" />
         <activity android:name=".LoginActivity" />
@@ -35,18 +34,20 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
 
-        <activity android:name="guilherme.tagtapmulti.TagTapNotesActivity">
+        <activity android:name=".TagTapNotesActivity">
             <intent-filter>
                 <action android:name="guilherme.tagtapmulti.TagTapNotesActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
         </activity>
+        <activity android:name="guilherme.tagtapmulti.TagTapActivity">
+            <intent-filter>
+                <action android:name="guilherme.tagtapmulti.TagTapActivity" />
 
-
-
-
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

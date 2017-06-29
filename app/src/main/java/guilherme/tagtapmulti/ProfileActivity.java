@@ -20,6 +20,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     //view objects
     private TextView textViewUserEmail;
     private Button buttonLogout;
+    private ImageView tagTapClickable;
     private ImageView tagTapNotesClickable;
 
 
@@ -28,7 +29,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        notesImageClick();
+        tagTapImageClick();
+        tagTapNotesImageClick();
 
 
         //initializing firebase authentication object
@@ -74,7 +76,21 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }
 
 
-    public void notesImageClick(){
+    //Making TagTap Image Clickable to open new activity of the app Tag&Tap
+    public void tagTapImageClick(){
+        tagTapClickable = (ImageView)findViewById(R.id.tagtap_image_link);
+        tagTapClickable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent tagTapNotesIntent = new Intent("guilherme.tagtapmulti.TagTapActivity");
+                startActivity(tagTapNotesIntent);
+            }
+        });
+    }
+
+
+    //Making TagTap Notes Image Clickable to open new activity of the app Tag&Tap Notes
+    public void tagTapNotesImageClick(){
         tagTapNotesClickable = (ImageView)findViewById(R.id.tagtapnotes_image_link);
         tagTapNotesClickable.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,10 +100,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
     }
-
-
-
-
 
 
 }

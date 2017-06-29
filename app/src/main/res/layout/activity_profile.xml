@@ -63,6 +63,8 @@
             android:id="@+id/tagtap_image_link"
             android:layout_width="185dp"
             android:layout_height="203dp"
+            android:clickable="true"
+            android:onClick="tagTapImageClick"
             android:padding="10dp"
             app:srcCompat="@drawable/tagtap_logo_512x512" />
 
@@ -102,8 +104,8 @@
             android:id="@+id/tagtapnotes_image_link"
             android:layout_width="185dp"
             android:layout_height="203dp"
-            android:clickable="false"
-            android:onClick="notesImageClick"
+            android:clickable="true"
+            android:onClick="tagTapNotesImageClick"
             android:padding="10dp"
             app:srcCompat="@drawable/tagtap_notes_logo_512x512" />
     </LinearLayout>
