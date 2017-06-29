@@ -85,7 +85,7 @@ public class TagTapNotesActivity extends AppCompatActivity {
     //Inflating a Menu.xml
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.tagtap_notes_menu, menu);
         return true;
     }
 
@@ -94,7 +94,7 @@ public class TagTapNotesActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item:
-                goToUrl ( "https://github.com/guilhermefmello/TagTap_Notes");
+                goToUrl ( "https://github.com/guilhermefmello/TagTap_Multi");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
