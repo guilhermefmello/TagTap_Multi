@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "563073252420-j6rt74gk8ooa5ldh5tne4c65ajcl6t3d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "guilherme.tagtapmulti",
+            "certificate_hash": "ffb8f482c9249672d920c3a7572f2b1e6ab6981e"
+          }
+        },
+        {
           "client_id": "563073252420-m6d98fj5s3farbt4uv2kf2d77h3b2f9q.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "563073252420-m6d98fj5s3farbt4uv2kf2d77h3b2f9q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

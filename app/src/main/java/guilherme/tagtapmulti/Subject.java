@@ -1,9 +1,12 @@
 package guilherme.tagtapmulti;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
 /**
  * Created by Destino Dublin on 01-Jul-17.
  */
 
+@IgnoreExtraProperties
 public class Subject {
 
     private String subjectId;

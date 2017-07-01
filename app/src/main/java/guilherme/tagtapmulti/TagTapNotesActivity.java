@@ -12,17 +12,26 @@ import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.Ndef;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TagTapNotesActivity extends AppCompatActivity {
 
@@ -32,6 +41,23 @@ public class TagTapNotesActivity extends AppCompatActivity {
     boolean writeMode;
     Tag mytag;
     Context ctx;
+
+    //we will use these constants later to pass the artist name and id to another activity
+    public static final String ARTIST_NAME = "net.simplifiedcoding.firebasedatabaseexample.artistname";
+    public static final String ARTIST_ID = "net.simplifiedcoding.firebasedatabaseexample.artistid";
+
+    //view objects
+    EditText editTextNotes;
+    Spinner spinnerCategory;
+    Button buttonSaveNotes;
+    ListView listViewNotes;
+
+    //a list to store all the artist from firebase database
+    List<DailyNotes> notes;
+
+    //our database reference object
+    DatabaseReference databaseDailyNotes;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +106,68 @@ public class TagTapNotesActivity extends AppCompatActivity {
         tagDetected.addCategory(Intent.CATEGORY_DEFAULT);
         writeTagFilters = new IntentFilter[] { tagDetected };
 
+
+
+        //getting the reference of notes node
+        databaseDailyNotes = FirebaseDatabase.getInstance().getReference("notes");
+
+        //getting views
+        editTextNotes = (EditText) findViewById(R.id.edit_message);
+        spinnerCategory = (Spinner) findViewById(R.id.spinnerCategory);
+        listViewNotes = (ListView) findViewById(R.id.listViewNotes);
+        buttonSaveNotes = (Button) findViewById(R.id.buttonSaveNotes);
+
+        //list to store notes
+        notes = new ArrayList<>();
+
+        //adding an onclicklistener to the save notes button
+        buttonSaveNotes.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                //calling the method saveNotes()
+                // the method is defined below
+                // this method is actually performing the write operation
+                saveNotes();
+            }
+        });
     }
+
+
+    /*
+    * This method is saving a new notes to the
+    * Firebase Realtime Database
+    */
+
+    private void saveNotes() {
+        //getting the values to save
+        String notes = editTextNotes.getText().toString().trim();
+        String category = spinnerCategory.getSelectedItem().toString();
+        //checking if the value is provided
+        if (!TextUtils.isEmpty(notes)) {
+            //getting a unique id using push().getKey() method
+            // it will create a unique id and we will use it as the Primary Key for our Notes
+            String notesId = databaseDailyNotes.push().getKey();
+
+            //creating an DailyNotes Object
+            DailyNotes dailyNotes = new DailyNotes(notesId, notes, category);
+
+            //Saving the notes
+            databaseDailyNotes.child(notesId).setValue(notes);
+
+            //setting edittext to blank again
+            editTextNotes.setText("");
+
+            //displaying a success toast
+            Toast.makeText(this, "Notes Added to Database", Toast.LENGTH_LONG).show();
+        } else {
+
+            //if the value is not given displaying a toast
+            Toast.makeText(this, "Please enter a Note!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+
 
     //Inflating a Menu.xml
     @Override

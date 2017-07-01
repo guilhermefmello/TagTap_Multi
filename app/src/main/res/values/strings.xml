@@ -18,4 +18,14 @@
     <item name="tagtap_notes_description" type="id">tagtap_notes_description</item>
     <item name="tagtap_image_link" type="id">tagtap_image_link</item>
     <item name="tagtapntes_image_link" type="id">tagtapnotes_image_link</item>
+
+    <array name="category">
+        <item>General</item>
+        <item>Personal</item>
+        <item>Work</item>
+        <item>Home</item>
+        <item>Finance</item>
+        <item>School</item>
+    </array>
+
 </resources>

@@ -2,4 +2,7 @@
 <resources>
     <item name="signup_login_button" type="id">signup_login_button</item>
     <item name="tagtapnotes_image_link" type="id">tagtapnotes_image_link</item>
+    <item name="spinnerCategory" type="id">spinnerCategory</item>
+    <item name="listViewNotes" type="id">listViewNotes</item>
+    <item name="buttonSaveNotes" type="id">buttonSaveNotes</item>
 </resources>
