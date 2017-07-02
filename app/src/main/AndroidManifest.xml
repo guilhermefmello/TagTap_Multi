@@ -3,7 +3,6 @@
     package="guilherme.tagtapmulti">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.NFC" />
 
     <application
@@ -13,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_multi"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,10 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProfileActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".LoginActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name=".FirebaseMessagingService">
                
@@ -39,7 +41,8 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
 
-        <activity android:name=".TagTapNotesActivity"
+        <activity
+            android:name=".TagTapNotesActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
@@ -48,7 +51,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="guilherme.tagtapmulti.TagTapActivity"
+        <activity
+            android:name=".TagTapActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="guilherme.tagtapmulti.TagTapActivity" />
@@ -56,6 +60,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".SubjectActivity"></activity>
     </application>
 
 </manifest>
