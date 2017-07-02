@@ -25,8 +25,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -166,6 +169,43 @@ public class TagTapNotesActivity extends AppCompatActivity {
             Toast.makeText(this, "Please enter a Note!", Toast.LENGTH_LONG).show();
         }
     }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        //attaching value event listener
+        databaseDailyNotes.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //clearing the previous notes list
+                Daily_Notes.clear();
+
+                //iterating through all the nodes
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+
+                    //getting notes
+                    DailyNotes dailynotes = postSnapshot.getValue(DailyNotes.class);
+                    //adding artist to the list
+                    Daily_Notes.add(dailynotes);
+                }
+
+                //creating adapter
+                NotesList notesAdapter = new NotesList(TagTapNotesActivity.this, Daily_Notes);
+                //attaching adapter to the listview
+                listViewNotes.setAdapter(notesAdapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+
+
 
 
 
