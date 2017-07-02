@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+     <TextView
+
+    android:text="Welcome to TagTap Multi!"
+    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+    android:id="@+id/textViewNotes"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+     
+        <TextView
+    android:text="General"
+    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+    android:id="@+id/textViewCategory"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" />
+
+
+</LinearLayout>

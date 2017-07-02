@@ -53,7 +53,7 @@ public class TagTapNotesActivity extends AppCompatActivity {
     ListView listViewNotes;
 
     //a list to store all the artist from firebase database
-    List<DailyNotes> notes;
+    List<DailyNotes> Daily_Notes;
 
     //our database reference object
     DatabaseReference databaseDailyNotes;
@@ -109,7 +109,7 @@ public class TagTapNotesActivity extends AppCompatActivity {
 
 
         //getting the reference of notes node
-        databaseDailyNotes = FirebaseDatabase.getInstance().getReference("notes");
+        databaseDailyNotes = FirebaseDatabase.getInstance().getReference("Daily_Notes");
 
         //getting views
         editTextNotes = (EditText) findViewById(R.id.edit_message);
@@ -118,7 +118,7 @@ public class TagTapNotesActivity extends AppCompatActivity {
         buttonSaveNotes = (Button) findViewById(R.id.buttonSaveNotes);
 
         //list to store notes
-        notes = new ArrayList<>();
+        Daily_Notes = new ArrayList<>();
 
         //adding an onclicklistener to the save notes button
         buttonSaveNotes.setOnClickListener(new View.OnClickListener() {
@@ -153,7 +153,7 @@ public class TagTapNotesActivity extends AppCompatActivity {
             DailyNotes dailyNotes = new DailyNotes(notesId, notes, category);
 
             //Saving the notes
-            databaseDailyNotes.child(notesId).setValue(notes);
+            databaseDailyNotes.child(notesId).setValue(dailyNotes);
 
             //setting edittext to blank again
             editTextNotes.setText("");
