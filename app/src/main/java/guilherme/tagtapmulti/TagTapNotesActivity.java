@@ -18,6 +18,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -46,8 +47,8 @@ public class TagTapNotesActivity extends AppCompatActivity {
     Context ctx;
 
     //we will use these constants later to pass the artist name and id to another activity
-    public static final String ARTIST_NAME = "net.simplifiedcoding.firebasedatabaseexample.artistname";
-    public static final String ARTIST_ID = "net.simplifiedcoding.firebasedatabaseexample.artistid";
+    public static final String NOTES = "guilherme.tagtapmulti.TagTapNotesActivity.notes";
+    public static final String NOTES_ID = "guilherme.tagtapmulti.TagTapNotesActivity.notesId";
 
     //view objects
     EditText editTextNotes;
@@ -134,6 +135,29 @@ public class TagTapNotesActivity extends AppCompatActivity {
                 saveNotes();
             }
         });
+
+
+        //attaching listener to listview
+        listViewNotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                //getting the selected note
+                DailyNotes dailynotes = Daily_Notes.get(i);
+
+                //creating an intent
+                Intent intent = new Intent(getApplicationContext(), SubjectActivity.class);
+
+                //putting note and noteId to intent
+                intent.putExtra(NOTES_ID, dailynotes.getNotesId());
+                intent.putExtra(NOTES, dailynotes.getNotes());
+
+                //starting the activity with intent
+                startActivity(intent);
+            }
+        });
+
     }
 
 
