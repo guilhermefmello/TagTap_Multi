@@ -27,12 +27,12 @@ public class SubjectList extends ArrayAdapter<Subject> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View listViewItem = inflater.inflate(R.layout.layout_notes_list, null, true);
-        TextView textViewNotes = (TextView) listViewItem.findViewById(R.id.textViewNotes);
+        View listViewItem = inflater.inflate(R.layout.layout_subject_list, null, true);
+        TextView textViewSubject = (TextView) listViewItem.findViewById(R.id.textViewSubject);
         TextView textViewRating = (TextView) listViewItem.findViewById(R.id.textViewRating);
 
         Subject subject = subjects.get(position);
-        textViewNotes.setText(subject.getSubject());
+        textViewSubject.setText(subject.getSubject());
         textViewRating.setText(String.valueOf( subject.getPriority()));
         return listViewItem;
     }
