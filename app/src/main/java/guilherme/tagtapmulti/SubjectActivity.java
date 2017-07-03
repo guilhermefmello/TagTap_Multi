@@ -52,7 +52,7 @@ public class SubjectActivity extends AppCompatActivity {
 
         subjects = new ArrayList<>();
 
-        /*
+
         textViewNotes.setText(intent.getStringExtra(TagTapNotesActivity.NOTES));
 
 
@@ -72,7 +72,7 @@ public class SubjectActivity extends AppCompatActivity {
             }
         });
 
-        */
+        
 
 
 
