@@ -246,12 +246,29 @@ public class TagTapNotesActivity extends AppCompatActivity {
     // Updating Notes
     private boolean updateNotes(String notesId, String notes, String category) {
         //getting the specified notes reference
-        DatabaseReference dR = FirebaseDatabase.getInstance().getReference("artists").child(notesId);
+        DatabaseReference dR = FirebaseDatabase.getInstance().getReference("Daily_Notes").child(notesId);
 
         //updating notes
         DailyNotes dailyNotes = new DailyNotes(notesId, notes, category);
         dR.setValue(dailyNotes);
-        Toast.makeText(getApplicationContext(), "Note Updated", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Note Updated!", Toast.LENGTH_LONG).show();
+        return true;
+    }
+
+    //Deleting Notes
+    private boolean deleteNotes(String id) {
+        //getting the specified note reference
+        DatabaseReference dR = FirebaseDatabase.getInstance().getReference("Daily_Notes").child(id);
+
+        //removing note
+        dR.removeValue();
+
+        //getting the subject reference for the specified note
+        DatabaseReference drSubjects = FirebaseDatabase.getInstance().getReference("Subjects").child(id);
+
+        //removing all subjects
+        drSubjects.removeValue();
+        Toast.makeText(getApplicationContext(), "Note Deleted!", Toast.LENGTH_LONG).show();
         return true;
     }
 
@@ -290,8 +307,16 @@ public class TagTapNotesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 /*
-                * we will code this method to delete the artist
+                * we will code this method to delete the note
                 * */
+                buttonDelete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        deleteNotes(notesId);
+                        b.dismiss();
+                    }
+                });
+
             }
         });
     }
