@@ -1,5 +1,6 @@
 package guilherme.tagtapmulti;
 
+import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +16,7 @@ import android.nfc.tech.Ndef;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -158,6 +160,18 @@ public class TagTapNotesActivity extends AppCompatActivity {
             }
         });
 
+
+        // Adding Long Click to Update and Delete Alert Dialog
+        listViewNotes.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                DailyNotes dailynotes = Daily_Notes.get(i);
+                showUpdateDeleteDialog(dailynotes.getNotesId(), dailynotes.getNotes());
+                return true;
+            }
+        });
+
+
     }
 
 
@@ -228,6 +242,59 @@ public class TagTapNotesActivity extends AppCompatActivity {
         });
     }
 
+
+    // Updating Notes
+    private boolean updateNotes(String notesId, String notes, String category) {
+        //getting the specified notes reference
+        DatabaseReference dR = FirebaseDatabase.getInstance().getReference("artists").child(notesId);
+
+        //updating notes
+        DailyNotes dailyNotes = new DailyNotes(notesId, notes, category);
+        dR.setValue(dailyNotes);
+        Toast.makeText(getApplicationContext(), "Note Updated", Toast.LENGTH_LONG).show();
+        return true;
+    }
+
+
+    // Building a Alert Dialog Box
+    private void showUpdateDeleteDialog(final String notesId, String notes) {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.update_dialog, null);
+        dialogBuilder.setView(dialogView);
+
+        final EditText editTextNotes = (EditText) dialogView.findViewById(R.id.editTextNotes);
+        final Spinner spinnerCategory = (Spinner) dialogView.findViewById(R.id.spinnerCategory);
+        final Button buttonUpdate = (Button) dialogView.findViewById(R.id.buttonUpdateNotes);
+        final Button buttonDelete = (Button) dialogView.findViewById(R.id.buttonDeleteNotes);
+
+        dialogBuilder.setTitle(notes);
+        final AlertDialog b = dialogBuilder.create();
+        b.show();
+
+        buttonUpdate.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                String notes = editTextNotes.getText().toString().trim();
+                String category = spinnerCategory.getSelectedItem().toString();
+                if (!TextUtils.isEmpty(notes)) {
+                    updateNotes(notesId, notes, category);
+                    b.dismiss();
+                }
+            }
+        });
+
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                /*
+                * we will code this method to delete the artist
+                * */
+            }
+        });
+    }
 
 
 
