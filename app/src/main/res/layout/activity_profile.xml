@@ -98,7 +98,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:padding="15dp"
-            android:text="Save a Text Message into a NFC Tag. Tired about dozens of post notes arround your workstation or on your fridge? Click on TagTap Notes Logo and feel the new experience! " />
+            android:text="Save a Text Message into a NFC Tag. Are you tired about dozens of post notes arround your workstation or on your fridge? Click on TagTap Notes Logo and feel the new experience! " />
 
         <ImageView
             android:id="@+id/tagtapnotes_image_link"

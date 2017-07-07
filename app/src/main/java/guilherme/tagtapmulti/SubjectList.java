@@ -32,8 +32,8 @@ public class SubjectList extends ArrayAdapter<Subject> {
         TextView textViewRating = (TextView) listViewItem.findViewById(R.id.textViewRating);
 
         Subject subject = subjects.get(position);
-        textViewSubject.setText(subject.getSubject());
-        textViewRating.setText(String.valueOf( subject.getPriority()));
+        textViewSubject.setText("Subject: " + subject.getSubject());
+        textViewRating.setText("Priority: " + String.valueOf( subject.getPriority()));
         return listViewItem;
     }
 }

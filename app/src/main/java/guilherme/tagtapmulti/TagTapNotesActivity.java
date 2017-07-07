@@ -234,7 +234,7 @@ public class TagTapNotesActivity extends AppCompatActivity {
 
                     //getting notes
                     DailyNotes dailynotes = postSnapshot.getValue(DailyNotes.class);
-                    //adding artist to the list
+                    //adding notes to the list
                     Daily_Notes.add(dailynotes);
                 }
 
