@@ -130,6 +130,9 @@ public class TagTapNotesActivity extends AppCompatActivity {
         //list to store notes
         Daily_Notes = new ArrayList<>();
 
+        // Adding Sound to the Add Note Button
+        final MediaPlayer myMediabtnAddNote = MediaPlayer.create(this, R.raw.button_sound1);
+
         //adding an onclicklistener to the save notes button
         buttonSaveNotes.setOnClickListener(new View.OnClickListener() {
 
@@ -139,6 +142,8 @@ public class TagTapNotesActivity extends AppCompatActivity {
                 // the method is defined below
                 // this method is actually performing the write operation
                 saveNotes();
+
+                myMediabtnAddNote.start();
             }
         });
 

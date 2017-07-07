@@ -109,10 +109,18 @@ public class SubjectActivity extends AppCompatActivity {
 
         databaseSubject = FirebaseDatabase.getInstance().getReference("Subjects").child(id);
 
+        // Adding Sound to the Add Subject Button
+        final MediaPlayer myMediabtnAddSubject = MediaPlayer.create(this, R.raw.button_sound1);
+
+
+        //Button Save Subject and Priority to DataBase
         buttonAddSubject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                myMediabtnAddSubject.start();
                 saveSubject();
+
             }
         });
 
@@ -204,20 +212,7 @@ public class SubjectActivity extends AppCompatActivity {
             Toast.makeText(this, "Subject Should Not Be Empty", Toast.LENGTH_LONG).show();
         }
 
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
     //Inflating a Menu.xml
