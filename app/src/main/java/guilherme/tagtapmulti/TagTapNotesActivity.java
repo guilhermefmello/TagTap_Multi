@@ -51,6 +51,7 @@ public class TagTapNotesActivity extends AppCompatActivity {
     //we will use these constants later to pass the artist name and id to another activity
     public static final String NOTES = "guilherme.tagtapmulti.TagTapNotesActivity.notes";
     public static final String NOTES_ID = "guilherme.tagtapmulti.TagTapNotesActivity.notesId";
+    public static final String CATEGORY = "guilherme.tagtapmulti.TagTapNotesActivity.category";
 
     //view objects
     EditText editTextNotes;
@@ -159,6 +160,7 @@ public class TagTapNotesActivity extends AppCompatActivity {
                 //putting note and noteId to intent
                 intent.putExtra(NOTES_ID, dailynotes.getNotesId());
                 intent.putExtra(NOTES, dailynotes.getNotes());
+                intent.putExtra(CATEGORY, dailynotes.getCategory());
 
                 //starting the activity with intent
                 startActivity(intent);

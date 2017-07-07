@@ -52,8 +52,9 @@ public class SubjectActivity extends AppCompatActivity {
 
         subjects = new ArrayList<>();
 
-
+        // Setting the selected saved Message and Category into TextView
         textViewNotes.setText(intent.getStringExtra(TagTapNotesActivity.NOTES));
+        textViewNotes.setText(intent.getStringExtra(TagTapNotesActivity.CATEGORY));
 
 
         seekBarRating.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -78,8 +79,10 @@ public class SubjectActivity extends AppCompatActivity {
 
         String id = intent.getStringExtra(TagTapNotesActivity.NOTES_ID);
         String notes = intent.getStringExtra(TagTapNotesActivity.NOTES);
+        String category = intent.getStringExtra(TagTapNotesActivity.CATEGORY);
 
-        textViewNotes.setText(notes);
+        // Displaying the selected saved message into TextView
+        textViewNotes.setText("Note: " + notes + "\n" + "Category: " + category);
 
         databaseSubject = FirebaseDatabase.getInstance().getReference("Subjects").child(id);
 
