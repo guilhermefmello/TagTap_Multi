@@ -81,7 +81,10 @@ public class TagTapNotesActivity extends AppCompatActivity {
         // Adding Sound to the Button
         final MediaPlayer myMediabtSinglePlayer = MediaPlayer.create(this, R.raw.button_sound1);
         final TextView message = (TextView)findViewById(R.id.edit_message);
+        final Spinner spinner = (Spinner)findViewById(R.id.spinnerCategory);
 
+
+        // Button to write the Message and Category in the NFC TAG
         btnWrite.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -93,7 +96,7 @@ public class TagTapNotesActivity extends AppCompatActivity {
                     if(mytag==null){
                         Toast.makeText(ctx, "TAG NOT DETECTED!", Toast.LENGTH_LONG ).show();
                     }else{
-                        write(message.getText().toString(),mytag);
+                        write(message.getText().toString(), spinner.getSelectedItem().toString(),mytag);
                         Toast.makeText(ctx, "TAG HAS BEEN WRITTEN!", Toast.LENGTH_LONG ).show();
                     }
                 } catch (IOException e) {
@@ -139,6 +142,8 @@ public class TagTapNotesActivity extends AppCompatActivity {
         });
 
 
+
+
         //attaching listener to listview
         listViewNotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -157,6 +162,8 @@ public class TagTapNotesActivity extends AppCompatActivity {
 
                 //starting the activity with intent
                 startActivity(intent);
+
+
             }
         });
 
@@ -319,6 +326,8 @@ public class TagTapNotesActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 
 
@@ -351,10 +360,10 @@ public class TagTapNotesActivity extends AppCompatActivity {
         startActivity(launchBrowser);
     }
 
-    // Writing the message into the NFC TAG
-    private void write(String text, Tag tag) throws IOException, FormatException {
+    // Writing the Message and Category into the NFC TAG
+    private void write(String text, String text2, Tag tag) throws IOException, FormatException {
 
-        NdefRecord[] records = { createRecord(text) };
+        NdefRecord[] records = { createRecord("Message: " + text), createRecord("Category: " + text2) };
         NdefMessage message = new NdefMessage(records);
         // Get an instance of Ndef for the tag.
         Ndef ndef = Ndef.get(tag);
@@ -365,6 +374,8 @@ public class TagTapNotesActivity extends AppCompatActivity {
         // Close the connection
         ndef.close();
     }
+
+
 
     // Creating NDEF Message to write into the NFC TAG
     private NdefRecord createRecord(String text) throws UnsupportedEncodingException {
