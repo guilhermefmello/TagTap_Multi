@@ -29,6 +29,8 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.nio.charset.Charset;
 
+import static guilherme.tagtapmulti.R.drawable.ic_help_black_24dp;
+
 public class TagTapActivity extends AppCompatActivity {
 
     private static final String TAG = "NFCWriteTag";
@@ -101,7 +103,7 @@ public class TagTapActivity extends AppCompatActivity {
     //Inflating a Menu.xml
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.tagtap_menu, menu);
+        getMenuInflater().inflate(R.menu.tagtap_multi_menu, menu);
 
         return true;
 
@@ -113,13 +115,31 @@ public class TagTapActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item:
-
-                goToUrl ( "https://github.com/guilhermefmello/TagTap");
+                goToUrl("https://github.com/guilhermefmello/TagTap");
 
                 return true;
+
+            case R.id.menu_info:
+
+                //Building Alert Dialog to Show Information about Saving a URL into a NFC TAG
+                android.app.AlertDialog.Builder dialogBuilder = new android.app.AlertDialog.Builder(this);
+                LayoutInflater inflater = getLayoutInflater();
+                final View dialogView = inflater.inflate(R.layout.info_menu_tagtap_layout, null);
+                dialogBuilder.setView(dialogView);
+
+                dialogBuilder.setIcon(ic_help_black_24dp);
+                dialogBuilder.setPositiveButton("OK", null);
+                dialogBuilder.setTitle("URL into NFC TAG!");
+                final android.app.AlertDialog b = dialogBuilder.create();
+                b.show();
+
+                return true;
+
             default:
-                return super.onOptionsItemSelected(item);
+            return super.onOptionsItemSelected(item);
+
         }
+
     }
 
 

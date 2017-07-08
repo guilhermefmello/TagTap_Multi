@@ -129,9 +129,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.menu_item:
                 goToUrl ( "https://github.com/guilhermefmello/TagTap_Multi");
 
+                return true;
+
             case R.id.menu_info:
 
-                //Building Alert Dialog to Show Information about Notes Panel
+                //Building Alert Dialog to Show Information about TagTap Multi Application
                 AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
                 LayoutInflater inflater = getLayoutInflater();
                 final View dialogView = inflater.inflate(R.layout.info_menu_layout, null);
@@ -139,37 +141,17 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
                 dialogBuilder.setIcon(ic_help_black_24dp);
                 dialogBuilder.setPositiveButton("OK", null);
-                dialogBuilder.setTitle("Using the Notes Panel");
+                dialogBuilder.setTitle("Choosing an App!");
                 final AlertDialog b = dialogBuilder.create();
                 b.show();
 
-
                 return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
 
-        /*
-        switch (item.getItemId()) {
-            case R.id.menu_info:
 
-                final View addView = getLayoutInflater().inflate(R.layout.info_menu_layout, null);
-                new AlertDialog.Builder(this).setTitle("Using the Notes Panel");
-
-
-                //AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-                //LayoutInflater inflater = getLayoutInflater();
-                //final View dialogView = inflater.inflate(R.layout.update_dialog, null);
-                //dialogBuilder.setView(dialogView);
-                //dialogBuilder.setTitle(Information);
-                //final AlertDialog b = dialogBuilder.create();
-                .show();
-
-
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }*/
     }
 
 
@@ -179,8 +161,5 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
     }
-
-
-
 
 }

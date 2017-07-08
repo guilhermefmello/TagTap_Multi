@@ -9,7 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:hint="Enter New Message" />
+        android:hint="Enter New Message"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/black" />
      
         
 

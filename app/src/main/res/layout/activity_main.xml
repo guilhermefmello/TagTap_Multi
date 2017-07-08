@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/tagtap_multi_background5"
     tools:context="guilherme.tagtapmulti.MainActivity">
 
 
@@ -24,6 +25,7 @@
             android:layout_margin="15dp"
             android:text="User Registration"
             android:textAlignment="center"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
         <EditText
@@ -33,7 +35,9 @@
             android:layout_margin="15dp"
             android:ems="10"
             android:hint="Enter Email"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
 
         <EditText
             android:id="@+id/enter_password_edit_text"
@@ -43,7 +47,9 @@
             android:ems="10"
             android:hint="Enter Password"
             android:inputType="textPersonName"
-            android:password="true" />
+            android:password="true"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white" />
 
         <Button
             android:id="@+id/signup_button"
@@ -59,6 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:text="Already Registered? Sign in Here!"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

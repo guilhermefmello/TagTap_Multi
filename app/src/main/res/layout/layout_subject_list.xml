@@ -22,14 +22,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Welcome to TagTap Multi!"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/textViewRating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="General"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@android:color/white" />
     </LinearLayout>
 
 </LinearLayout>

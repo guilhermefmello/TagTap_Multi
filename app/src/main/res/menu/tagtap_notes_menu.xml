@@ -7,19 +7,17 @@
 
 
     <item
-
         android:id="@+id/menu_item"
+        android:icon="@drawable/ic_info_black_24dp"
+        android:title="About TagTap Multi Project"
+        app:showAsAction="always"
+        />
 
-        android:icon="@drawable/tagtap_notes_menu_48x48"
-
-        android:title="About TagTap Notes Project"
-
-
-
-
-
-
-
+    <item
+        android:id="@+id/menu_info"
+        android:icon="@drawable/ic_help_black_24dp"
+        android:title="Saving a Text Message"
+        app:showAsAction="always"
         />
 
 </menu>

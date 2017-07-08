@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Welcome to TagTap Multi!"
+        android:text="Note Panel Instructions"
         android:textAlignment="center" />
 
     <TextView
@@ -17,7 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="1) Make your choice by clicking on TagTap Logos; 2) To save a URL address into NFC TAG click on TagTap Logo; 3) To save a Text Message into NFC TAG and Database, click on TagTap Notes Logo; 4) Click on Log out button to Signout; 5) Click on information icon menu to know more about TagTap Multi Project on its GitHub repository."
+        android:text="1) Slide up or down on Notes Panel to see the Notes List; 2) Tap on notes to add and view a Subject; 3) Tap longer to Update or Delete your selected Message. 4) Click on information icon menu to know more about TagTap Notes Project on its GitHub repository."
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp" />
+
 </LinearLayout>

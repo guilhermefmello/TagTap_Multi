@@ -15,6 +15,7 @@ import android.nfc.tech.Ndef;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,6 +37,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static guilherme.tagtapmulti.R.drawable.ic_help_black_24dp;
 import static guilherme.tagtapmulti.R.id.listViewSubject;
 
 public class SubjectActivity extends AppCompatActivity {
@@ -215,10 +217,11 @@ public class SubjectActivity extends AppCompatActivity {
     }
 
 
+
     //Inflating a Menu.xml
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.tagtap_notes_menu, menu);
+        getMenuInflater().inflate(R.menu.tagtap_multi_menu, menu);
         return true;
     }
 
@@ -227,8 +230,26 @@ public class SubjectActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item:
-                goToUrl ( "https://github.com/guilhermefmello/TagTap_Notes");
+                goToUrl ( "https://github.com/guilhermefmello/TagTap_Multi");
+
                 return true;
+
+            case R.id.menu_info:
+
+                //Building Alert Dialog to Show Information about Subjects Panel
+                android.app.AlertDialog.Builder dialogBuilder = new android.app.AlertDialog.Builder(this);
+                LayoutInflater inflater = getLayoutInflater();
+                final View dialogView = inflater.inflate(R.layout.info_menu_subjects_layout, null);
+                dialogBuilder.setView(dialogView);
+
+                dialogBuilder.setIcon(ic_help_black_24dp);
+                dialogBuilder.setPositiveButton("OK", null);
+                dialogBuilder.setTitle("Using the Subjects Panel!");
+                final android.app.AlertDialog b = dialogBuilder.create();
+                b.show();
+
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -308,18 +329,6 @@ public class SubjectActivity extends AppCompatActivity {
         writeMode = false;
         adapter.disableForegroundDispatch(this);
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

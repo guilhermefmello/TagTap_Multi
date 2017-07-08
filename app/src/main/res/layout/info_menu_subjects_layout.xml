@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Welcome to TagTap Multi!"
+        android:text="Subjects Panel Instructions"
         android:textAlignment="center" />
 
     <TextView
@@ -17,7 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="1) Make your choice by clicking on TagTap Logos; 2) To save a URL address into NFC TAG click on TagTap Logo; 3) To save a Text Message into NFC TAG and Database, click on TagTap Notes Logo; 4) Click on Log out button to Signout; 5) Click on information icon menu to know more about TagTap Multi Project on its GitHub repository."
+        android:text="1) Your selected/saved message and category appears on the top of the screen; 2) Enter a Subject and Rate the Messages' Priority; 3) Use the Add Subject button to add the subject and category to the Database. 5) Use the Write tag button to save message, category, subject and priority level into a NFC TAG; 5) All saved subjects appears into a list on the bottom of device's screen; 6) Click on information icon menu to know more about TagTap Multi Project on its GitHub repository."
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp" />
+
+
 </LinearLayout>
