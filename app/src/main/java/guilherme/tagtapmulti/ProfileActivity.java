@@ -1,9 +1,11 @@
 package guilherme.tagtapmulti;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +15,8 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import static guilherme.tagtapmulti.R.drawable.ic_help_black_24dp;
 
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -116,16 +120,56 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         return true;
     }
 
+
+
     //Adding a Action to the Option in the Menu Bar.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item:
                 goToUrl ( "https://github.com/guilhermefmello/TagTap_Multi");
+
+            case R.id.menu_info:
+
+                //Building Alert Dialog to Show Information about Notes Panel
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+                LayoutInflater inflater = getLayoutInflater();
+                final View dialogView = inflater.inflate(R.layout.info_menu_layout, null);
+                dialogBuilder.setView(dialogView);
+
+                dialogBuilder.setIcon(ic_help_black_24dp);
+                dialogBuilder.setPositiveButton("OK", null);
+                dialogBuilder.setTitle("Using the Notes Panel");
+                final AlertDialog b = dialogBuilder.create();
+                b.show();
+
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+
+        /*
+        switch (item.getItemId()) {
+            case R.id.menu_info:
+
+                final View addView = getLayoutInflater().inflate(R.layout.info_menu_layout, null);
+                new AlertDialog.Builder(this).setTitle("Using the Notes Panel");
+
+
+                //AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+                //LayoutInflater inflater = getLayoutInflater();
+                //final View dialogView = inflater.inflate(R.layout.update_dialog, null);
+                //dialogBuilder.setView(dialogView);
+                //dialogBuilder.setTitle(Information);
+                //final AlertDialog b = dialogBuilder.create();
+                .show();
+
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }*/
     }
 
 

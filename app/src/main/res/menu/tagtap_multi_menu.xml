@@ -4,10 +4,16 @@
 
     <item
         android:id="@+id/menu_item"
-        android:icon="@drawable/tagtap_logo_48"
+        android:icon="@drawable/ic_info_black_24dp"
         android:title="About TagTap Multi Project"
-
-
-
+        app:showAsAction="always"
         />
+
+    <item
+        android:id="@+id/menu_info"
+        android:icon="@drawable/ic_help_black_24dp"
+        android:title="Using Notes Panel"
+        app:showAsAction="always"
+        />
+
 </menu>
