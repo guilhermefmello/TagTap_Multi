@@ -53,7 +53,8 @@
         </activity>
         <activity
             android:name=".TagTapActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="guilherme.tagtapmulti.TagTapActivity" />
 
