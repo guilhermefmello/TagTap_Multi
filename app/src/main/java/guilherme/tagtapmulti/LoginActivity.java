@@ -2,6 +2,7 @@ package guilherme.tagtapmulti;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -39,6 +40,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     //progress dialog
     private ProgressDialog progressDialog;
 
+    //Custom Text Variable for User Login
+    TextView userLoginText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.tagtap_multi_icon_44);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+
+        //Styling Text using assets Custom Text for User Login
+        userLoginText = (TextView) findViewById(R.id.user_login_text_view);
+        Typeface customFont = Typeface.createFromAsset(getAssets(), "fonts/font3.ttf");
+        userLoginText.setTypeface(customFont);
+
 
         //getting firebase auth object
         firebaseAuth = FirebaseAuth.getInstance();

@@ -26,7 +26,7 @@
             android:text="User Registration"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="24sp" />
+            android:textSize="70sp" />
 
         <EditText
             android:id="@+id/enter_email_edit_text"

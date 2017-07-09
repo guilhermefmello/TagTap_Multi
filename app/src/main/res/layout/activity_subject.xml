@@ -58,7 +58,7 @@
         android:text="Rate the Priority"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="14sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
@@ -161,6 +161,7 @@
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:textColor="@android:color/white"
+        android:textSize="45sp"
         app:layout_constraintBottom_toTopOf="@+id/listViewSubject"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
@@ -168,7 +169,7 @@
     <ListView
         android:id="@+id/listViewSubject"
         android:layout_width="0dp"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:layout_below="@+id/textView"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"

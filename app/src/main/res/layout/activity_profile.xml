@@ -51,13 +51,8 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="210dp"
+        android:layout_margin="10dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -66,21 +61,20 @@
 
         <ImageView
             android:id="@+id/tagtap_image_link"
-            android:layout_width="185dp"
+            android:layout_width="150dp"
             android:layout_height="203dp"
+            android:layout_marginLeft="10dp"
             android:clickable="true"
             android:onClick="tagTapImageClick"
-            android:padding="10dp"
             app:srcCompat="@drawable/tagtap_logo_512" />
 
-        <TextView
+        <WebView
             android:id="@+id/tagtap_description"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="203dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:padding="15dp"
-            android:text="Save a URL address into a NFC Tag. From a modern way to show companies' products labels to your new bussiness card. Click on TagTap Logo and check it out!"
+            android:background="@android:color/transparent"
             android:textColor="@android:color/white" />
 
     </LinearLayout>
@@ -88,34 +82,29 @@
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="210dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-        <TextView
+        <WebView
             android:id="@+id/tagtap_notes_description"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="203dp"
             android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:padding="15dp"
-            android:text="Save a Text Message into a NFC Tag. Are you tired about dozens of post notes arround your workstation or on your fridge? Click on TagTap Notes Logo and feel the new experience! "
             android:textColor="@android:color/white" />
 
         <ImageView
             android:id="@+id/tagtapnotes_image_link"
-            android:layout_width="185dp"
+            android:layout_width="150dp"
             android:layout_height="203dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
             android:clickable="true"
             android:onClick="tagTapNotesImageClick"
-            android:padding="10dp"
             app:srcCompat="@drawable/tagtap_notes_logo_512x512" />
     </LinearLayout>
 

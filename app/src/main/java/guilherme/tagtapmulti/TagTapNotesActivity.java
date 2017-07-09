@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.nfc.FormatException;
@@ -67,6 +68,12 @@ public class TagTapNotesActivity extends AppCompatActivity {
     //our database reference object
     DatabaseReference databaseDailyNotes;
 
+    //Custom Text Variable for Notes Panel
+    TextView notesPanelText;
+
+    //Custom Text Variable for Write Daily Notes
+    TextView writeDailyNotesText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +84,18 @@ public class TagTapNotesActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.tagtap_notes_menu_48x48);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+
+        //Styling Text using assets Custom Text for Notes Panel
+        notesPanelText = (TextView) findViewById(R.id.textView4);
+        Typeface customFont = Typeface.createFromAsset(getAssets(), "fonts/font3.ttf");
+        notesPanelText.setTypeface(customFont);
+
+        //Styling Text using assets Custom Text for Write Daily Notes
+        writeDailyNotesText = (TextView) findViewById(R.id.textView);
+        Typeface customFont2 = Typeface.createFromAsset(getAssets(), "fonts/font3.ttf");
+        writeDailyNotesText.setTypeface(customFont2);
+
 
 
         ctx=this;

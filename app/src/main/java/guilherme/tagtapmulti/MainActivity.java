@@ -2,6 +2,7 @@ package guilherme.tagtapmulti;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -36,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //defining firebaseauth object
     private FirebaseAuth firebaseAuth;
 
+    //Custom Text Variable for User Registration
+    TextView userRegistrationText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.tagtap_multi_icon_44);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+
+        //Styling Text using assets Custom Text for User Registration
+        userRegistrationText = (TextView) findViewById(R.id.user_registration_text_view);
+        Typeface customFont = Typeface.createFromAsset(getAssets(), "fonts/font3.ttf");
+        userRegistrationText.setTypeface(customFont);
+
 
             //initializing firebase auth object
             firebaseAuth = FirebaseAuth.getInstance();

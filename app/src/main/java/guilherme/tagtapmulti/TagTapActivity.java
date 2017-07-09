@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.nfc.NdefMessage;
@@ -24,6 +25,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -45,6 +47,9 @@ public class TagTapActivity extends AppCompatActivity {
     private EditText editText;
 
 
+    //Custom Text Variable for TagTap NFC
+    TextView tagTapNFCText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +59,12 @@ public class TagTapActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.tagtap_logo_48);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+
+        //Styling Text using assets Custom Text for TagTap NFC
+        tagTapNFCText = (TextView) findViewById(R.id.textView);
+        Typeface customFont = Typeface.createFromAsset(getAssets(), "fonts/font13.ttf");
+        tagTapNFCText.setTypeface(customFont);
 
 
         /*

@@ -4,6 +4,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.nfc.FormatException;
@@ -60,6 +61,11 @@ public class SubjectActivity extends AppCompatActivity {
     Tag mytag;
     Context ctx;
 
+    //Custom Text Variable for Subjects
+    TextView subjectsText;
+
+    //Custom Text Variable for Rate Priority
+    TextView priorityText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +78,18 @@ public class SubjectActivity extends AppCompatActivity {
         seekBarRating = (SeekBar) findViewById(R.id.seekBarRating);
         ListViewSubject = (ListView) findViewById(listViewSubject);
         buttonAddSubject = (Button) findViewById(R.id.buttonAddSubject);
+
+
+        //Styling Text using assets Custom Text for Subjects
+        subjectsText = (TextView) findViewById(R.id.textView);
+        Typeface customFont = Typeface.createFromAsset(getAssets(), "fonts/font3.ttf");
+        subjectsText.setTypeface(customFont);
+
+        //Styling Text using assets Custom Text for Priority
+        priorityText = (TextView) findViewById(R.id.textView2);
+        Typeface customFont2 = Typeface.createFromAsset(getAssets(), "fonts/font3.ttf");
+        priorityText.setTypeface(customFont2);
+
 
         Intent intent = getIntent();
 

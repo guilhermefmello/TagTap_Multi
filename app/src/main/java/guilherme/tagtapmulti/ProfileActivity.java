@@ -2,6 +2,7 @@ package guilherme.tagtapmulti;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -73,6 +75,23 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         //adding listener to button
         buttonLogout.setOnClickListener((View.OnClickListener) this);
+
+
+        //Justifying TagTap Description Text using WebView
+        WebView webViewTagtTap = (WebView) findViewById(R.id.tagtap_description);
+        String tagTapDescription ="<font color=\"" + "#ffffff" + "\">" + "Save a URL address into a NFC Tag. From a modern way to show companies' products labels to your new bussiness card. Click on TagTap Logo and check it out!" + "</font>";
+        webViewTagtTap.loadData("<p style=\"text-align: justify\">"+ tagTapDescription + "</p>", "text/html", "UTF-8");
+        webViewTagtTap.setBackgroundColor(Color.TRANSPARENT);
+
+
+        //Justifying TagTap Notes Description Text using WebView
+        WebView webViewTagTapNotes = (WebView) findViewById(R.id.tagtap_notes_description);
+        String tagTapNotesDescription = "<font color=\"" + "#ffffff" + "\">" + "Save a Text Message into a NFC Tag. Are you tired about dozens of post notes arround your workstation or on your fridge? Click on TagTap Notes Logo and feel the new experience!" + "</font>";
+        webViewTagTapNotes.loadData("<p style=\"text-align: justify\">"+ tagTapNotesDescription + "</p>", "text/html", "UTF-8");
+        webViewTagTapNotes.setBackgroundColor(Color.TRANSPARENT);
+
+
+
     }
 
     @Override
@@ -145,6 +164,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 LayoutInflater inflater = getLayoutInflater();
                 final View dialogView = inflater.inflate(R.layout.info_menu_layout, null);
                 dialogBuilder.setView(dialogView);
+
 
                 dialogBuilder.setIcon(ic_help_black_24dp);
                 dialogBuilder.setPositiveButton("OK", null);
