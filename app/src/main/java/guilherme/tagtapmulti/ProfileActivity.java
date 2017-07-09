@@ -2,6 +2,7 @@ package guilherme.tagtapmulti;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -76,10 +77,16 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
+
+        // Adding Sound to the Add Sign In Button
+        final MediaPlayer myMediabtnLogout = MediaPlayer.create(this, R.raw.button_sound2);
+
         //if logout is pressed
         if(view == buttonLogout){
             //logging out the user
             firebaseAuth.signOut();
+            myMediabtnLogout.start();
+
             //closing activity
             finish();
             //starting login activity
