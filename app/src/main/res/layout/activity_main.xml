@@ -17,16 +17,22 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:srcCompat="@drawable/tagtap_multi_background7" />
+
         <TextView
             android:id="@+id/user_registration_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="15dp"
+            android:layout_margin="5dp"
             android:text="User Registration"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="70sp" />
+            android:textSize="60sp" />
 
         <EditText
             android:id="@+id/enter_email_edit_text"
