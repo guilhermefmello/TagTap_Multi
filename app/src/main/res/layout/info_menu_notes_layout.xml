@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="1) Slide up or down on Notes Panel to see the Notes List; 2) Tap on notes to add and view a Subject; 3) Tap longer to Update or Delete your selected Message. 4) Click on information icon menu to know more about TagTap Notes Project on its GitHub repository."
+        android:text="1) Slide up or down on Notes Panel to see the Notes List; 2) Tap on notes to add and view a Subject; 3) Tap longer to Update or Delete your selected Message. 4) On the Update/Delete window double click on Delete button to delete a message. 5) Click on information icon menu to know more about TagTap Notes Project on its GitHub repository."
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp" />
 
